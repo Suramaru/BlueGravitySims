@@ -3,40 +3,35 @@ using UnityEditor;
 using UnityEngine.U2D.Animation;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/SpriteLibraryManager", order = 1)]
-public class SpriteLibrary : ScriptableObject
+
+public class ItemLibrary : ScriptableObject
 {
-    [SerializeField] private SpriteLibraryEntry[] spriteHatsLibraries;
-    [SerializeField] private SpriteLibraryEntry[] spriteHairsLibraries;
-    [SerializeField] private SpriteLibraryEntry[] spriteClothsLibraries;
-    [SerializeField] private SpriteLibraryEntry[] spriteUnderwearLibraries;
+    [SerializeField] private ItemLibraryEntry[] spriteHatsLibraries;
+    [SerializeField] private ItemLibraryEntry[] spriteHairsLibraries;
+    [SerializeField] private ItemLibraryEntry[] spriteClothsLibraries;
+    [SerializeField] private ItemLibraryEntry[] spriteUnderwearLibraries;
 
-    public SpriteLibraryAsset ReturnHatsLibrary(int id)
+    public ItemLibraryEntry GetItemSpriteLibraryById(int id)
     {
-        SpriteLibraryEntry entry = FindLibraryEntry(spriteHatsLibraries, id);
-        return entry != null ? entry.libraryAsset : null;
+        ItemLibraryEntry entry = FindLibraryEntry(spriteHatsLibraries, id);
+        if (entry != null)
+            return entry;
+
+        entry = FindLibraryEntry(spriteHairsLibraries, id);
+        if (entry != null)
+            return entry;
+
+        entry = FindLibraryEntry(spriteClothsLibraries, id);
+        if (entry != null)
+            return entry;
+
+        entry = FindLibraryEntry(spriteUnderwearLibraries, id);
+        return entry;
     }
 
-    public SpriteLibraryAsset ReturnHairsLibrary(int id)
+    private ItemLibraryEntry FindLibraryEntry(ItemLibraryEntry[] entries, int id)
     {
-        SpriteLibraryEntry entry = FindLibraryEntry(spriteHairsLibraries, id);
-        return entry != null ? entry.libraryAsset : null;
-    }
-
-    public SpriteLibraryAsset ReturnClothLibrary(int id)
-    {
-        SpriteLibraryEntry entry = FindLibraryEntry(spriteClothsLibraries, id);
-        return entry != null ? entry.libraryAsset : null;
-    }
-
-    public SpriteLibraryAsset ReturnUnderWearLibrary(int id)
-    {
-        SpriteLibraryEntry entry = FindLibraryEntry(spriteUnderwearLibraries, id);
-        return entry != null ? entry.libraryAsset : null;
-    }
-
-    private SpriteLibraryEntry FindLibraryEntry(SpriteLibraryEntry[] entries, int id)
-    {
-        foreach (SpriteLibraryEntry entry in entries)
+        foreach (ItemLibraryEntry entry in entries)
         {
             if (entry.id == id)
                 return entry;
@@ -44,12 +39,13 @@ public class SpriteLibrary : ScriptableObject
         return null;
     }
 
+
     public void AssignIDsToExistingEntries()
     {
         System.Guid uniqueGuid;
         int uniqueId;
 
-        foreach (SpriteLibraryEntry entry in spriteHatsLibraries)
+        foreach (ItemLibraryEntry entry in spriteHatsLibraries)
         {
             uniqueGuid = System.Guid.NewGuid();
             uniqueId = uniqueGuid.GetHashCode();
@@ -57,7 +53,7 @@ public class SpriteLibrary : ScriptableObject
             entry.id = uniqueId;
         }
 
-        foreach (SpriteLibraryEntry entry in spriteHairsLibraries)
+        foreach (ItemLibraryEntry entry in spriteHairsLibraries)
         {
             uniqueGuid = System.Guid.NewGuid();
             uniqueId = uniqueGuid.GetHashCode();
@@ -65,7 +61,7 @@ public class SpriteLibrary : ScriptableObject
             entry.id = uniqueId;
         }
 
-        foreach (SpriteLibraryEntry entry in spriteClothsLibraries)
+        foreach (ItemLibraryEntry entry in spriteClothsLibraries)
         {
             uniqueGuid = System.Guid.NewGuid();
             uniqueId = uniqueGuid.GetHashCode();
@@ -73,7 +69,7 @@ public class SpriteLibrary : ScriptableObject
             entry.id = uniqueId;
         }
 
-        foreach (SpriteLibraryEntry entry in spriteUnderwearLibraries)
+        foreach (ItemLibraryEntry entry in spriteUnderwearLibraries)
         {
             uniqueGuid = System.Guid.NewGuid();
             uniqueId = uniqueGuid.GetHashCode();
@@ -84,8 +80,9 @@ public class SpriteLibrary : ScriptableObject
 }
 
 [System.Serializable]
-public class SpriteLibraryEntry
+public class ItemLibraryEntry
 {
     public int id;
+    public int itemPrice;
     public SpriteLibraryAsset libraryAsset;
 }

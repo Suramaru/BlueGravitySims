@@ -10,25 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dce5214d3a434b44abe1b36f366de4d, type: 3}
-  m_Name: SpriteLibrary
+  m_Name: ItemLibrary
   m_EditorClassIdentifier: 
   spriteHatsLibraries:
   - id: 151674157
+    itemPrice: 60
     libraryAsset: {fileID: 7108339969198208228, guid: ec22e00595edc4c478843d5268de7b2e, type: 3}
   - id: -1451630568
+    itemPrice: 30
     libraryAsset: {fileID: 7108339969198208228, guid: 6b6d2c7d814c9734f87042b1cdbd9cf7, type: 3}
   spriteHairsLibraries:
   - id: 218622977
+    itemPrice: 50
     libraryAsset: {fileID: 7108339969198208228, guid: f54f3c2bf8637bf4f933d63a197eb8cd, type: 3}
   - id: -1418347238
+    itemPrice: 80
     libraryAsset: {fileID: 7108339969198208228, guid: 278addd9d78ba9f48ab7a656394f21de, type: 3}
   spriteClothsLibraries:
   - id: 298014351
+    itemPrice: 100
     libraryAsset: {fileID: 7108339969198208228, guid: fd2e3746be137624d82e6960d03f00ac, type: 3}
   - id: -167506141
+    itemPrice: 90
     libraryAsset: {fileID: 7108339969198208228, guid: f74c3157f02394c47b2849520ee9d25f, type: 3}
   spriteUnderwearLibraries:
   - id: 1404085375
+    itemPrice: 0
     libraryAsset: {fileID: 7108339969198208228, guid: 12efc3d59d780114f9ad20802a5e2082, type: 3}
   - id: -546472886
+    itemPrice: 0
     libraryAsset: {fileID: 7108339969198208228, guid: f6d323607aa2037459497f21f6397388, type: 3}

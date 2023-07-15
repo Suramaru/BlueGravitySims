@@ -4,7 +4,7 @@ using UnityEngine;
 using MEC;
 
 [RequireComponent(typeof(Rigidbody2D))]
-sealed class CharacterController : MonoBehaviour
+sealed class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
 
