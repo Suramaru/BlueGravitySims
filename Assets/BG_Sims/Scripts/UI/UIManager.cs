@@ -13,6 +13,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private MainMenuUI mainMenuUI;
     [SerializeField] private DialogUI dialogUI;
 
+    private void Awake()
+    {
+        dialogUI.DialogFinish += OnDialogFinish;
+    }
+
     public void SetUi(UIType currentType)
     {
         switch (currentType)
@@ -31,18 +36,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetDialogUI(string dialog)
+    {
+        dialogUI.SetDialog(dialog);
+        SetUi(UIType.Dialog);
+    }
+
     public void SetCoinsToUI(float score)
     {
         scoreUI.SetCoinsUI(score);
     }
 
-    private void OnSetMainMenu()
+    private void OnDialogFinish()
     {
-        SetUi(UIType.MainMenu);
-    }
-
-    private void OnStartGame()
-    {
-        StartGame?.Invoke();
+        dialogUI.Show(false);
     }
 }
