@@ -1,3 +1,4 @@
+using MEC;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,10 +10,11 @@ public class DialogUI : UIBase
     public Action DialogFinish;
 
     [SerializeField] private TextMeshProUGUI dialogText;
+    private CoroutineHandle dialogCoroutine;
 
     public void SetDialog(string dialog)
     {
-        WriteText(dialog);
+        dialogCoroutine = Timing.RunCoroutine(WriteText(dialog));
     }
 
     private IEnumerator<float> WriteText(string dialog)
@@ -20,8 +22,8 @@ public class DialogUI : UIBase
         dialogText.text = "";
         foreach (char caracter in dialog)
         {
-            dialogText.text = dialogText.text + caracter;
-            yield return 0f;
+            dialogText.text += caracter;
+            yield return Timing.WaitForSeconds(.1f);
         }
 
         DialogFinish?.Invoke();

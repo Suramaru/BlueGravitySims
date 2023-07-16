@@ -509,7 +509,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -683, y: 13}
+  m_AnchoredPosition: {x: -683, y: 0}
   m_SizeDelta: {x: 645.1593, y: 513.4963}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &103833634
@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 155532015}
   m_Layer: 0
   m_Name: Hair1
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -596,8 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2
-  itemId: 218622977
+  itemID: 218622977
 --- !u!61 &155532016
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -740,9 +739,55 @@ Transform:
   - {fileID: 1229882986}
   - {fileID: 1005890115}
   - {fileID: 1151071630}
+  - {fileID: 299835626}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &299835625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 299835626}
+  - component: {fileID: 299835627}
+  m_Layer: 0
+  m_Name: ProgressManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &299835626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299835625}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 295443819}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &299835627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299835625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079cfa0e4db86fe4888246df09e1c195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogs: {fileID: 11400000, guid: 24aa8e7a0cd05914a8c649b801f36990, type: 2}
 --- !u!1 &413320360
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +802,7 @@ GameObject:
   - component: {fileID: 413320363}
   m_Layer: 0
   m_Name: Underwear2
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -841,8 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
-  itemId: -546472886
+  itemID: -546472886
 --- !u!61 &413320364
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -939,6 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7562b6bf3f599fa4584e2bfa85b86196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogText: {fileID: 905495347}
 --- !u!1 &532171601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,7 +1080,7 @@ GameObject:
   - component: {fileID: 572182856}
   m_Layer: 0
   m_Name: Hat1
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1068,8 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 3
-  itemId: 151674157
+  itemID: 151674157
 --- !u!61 &572182857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6085,7 +6129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 273, y: 87}
+  m_AnchoredPosition: {x: 273, y: 0}
   m_SizeDelta: {x: 392.1196, y: 318.0449}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &745625227
@@ -7352,6 +7396,7 @@ GameObject:
   - component: {fileID: 883108018}
   - component: {fileID: 883108021}
   - component: {fileID: 883108022}
+  - component: {fileID: 883108023}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7482,6 +7527,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59ab4117bd2844f4f8fb0df9324fe084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &883108023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883108016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c212568ebe6ecf542b4641c53d8ff20f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &905495345
@@ -7722,7 +7779,7 @@ GameObject:
   - component: {fileID: 940576525}
   m_Layer: 0
   m_Name: Underwear1
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7806,8 +7863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
-  itemId: 1404085375
+  itemID: 1404085375
 --- !u!61 &940576526
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7867,7 +7923,7 @@ GameObject:
   - component: {fileID: 987748692}
   m_Layer: 0
   m_Name: Cloth2
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7951,8 +8007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 1
-  itemId: -167506141
+  itemID: -167506141
 --- !u!61 &987748693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8209,7 +8264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020740840}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8259,7 +8314,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8650,7 +8705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreUI: {fileID: 532171603}
   mainMenuUI: {fileID: 0}
-  dialogUI: {fileID: 0}
+  dialogUI: {fileID: 523474083}
 --- !u!1 &1221243910
 GameObject:
   m_ObjectHideFlags: 0
@@ -8835,7 +8890,7 @@ GameObject:
   - component: {fileID: 1320921017}
   m_Layer: 0
   m_Name: Cloth1
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8919,8 +8974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 1
-  itemId: 298014351
+  itemID: 298014351
 --- !u!61 &1320921018
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14160,7 +14214,7 @@ GameObject:
   - component: {fileID: 1609282760}
   m_Layer: 0
   m_Name: Hat2
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14193,8 +14247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 3
-  itemId: -1451630568
+  itemID: -1451630568
 --- !u!61 &1609282761
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14253,7 +14306,7 @@ GameObject:
   - component: {fileID: 1633385280}
   m_Layer: 0
   m_Name: Hair2
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14286,8 +14339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2
-  itemId: -1418347238
+  itemID: -1418347238
 --- !u!61 &1633385281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14790,3 +14842,4 @@ MonoBehaviour:
   characterMovement: {fileID: 883108018}
   coinsController: {fileID: 883108022}
   uIManager: {fileID: 1151071631}
+  progressManager: {fileID: 299835627}

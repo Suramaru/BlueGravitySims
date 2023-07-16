@@ -16,9 +16,8 @@ MonoBehaviour:
   - id: 0
     dialog: Hey, why are you naked?
   - id: 1
-    dialog: You can take a underwear from the shop.
+    dialog: You can take a underwear from my shop for free.
   - id: 2
-    dialog: When you take it, you can come and speak to me if you want to bou a better
-      clothes.
+    dialog: But when you take it, come and speak to me.
   - id: 3
     dialog: I'll wait for you here.

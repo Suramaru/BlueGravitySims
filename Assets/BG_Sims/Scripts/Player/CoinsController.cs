@@ -9,6 +9,16 @@ public class CoinsController : MonoBehaviour
 
     private int coins;
 
+    public int Coins
+    {
+        get { return coins; }
+        private set
+        {
+            coins = value;
+            CoinsChanged?.Invoke(coins);
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
@@ -17,13 +27,11 @@ public class CoinsController : MonoBehaviour
 
     public void AddCoins()
     {
-        coins++;
-        CoinsChanged?.Invoke(coins);
+        Coins++;
     }
 
     public void RestartCoins()
     {
-        coins = 0;
-        CoinsChanged?.Invoke(coins);
+        Coins = 0;
     }
 }

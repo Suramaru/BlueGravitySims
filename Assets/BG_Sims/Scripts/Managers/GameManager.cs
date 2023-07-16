@@ -19,6 +19,14 @@ public class GameManager : MonoBehaviour
 
         coinsController.RestartCoins();
         uIManager.SetUi(UIType.Coins);
+
+        progressManager.DialogToSay();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+            progressManager.ActualiceProgress();
     }
 
     private void OnCoinsChanged(int coins)

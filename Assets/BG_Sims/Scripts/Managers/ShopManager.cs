@@ -19,13 +19,16 @@ public class ShopManager : MonoBehaviour
         {
             items[i].GetPrice += OnGetPrice;
             items[i].HidePrice += OnHidePrice;
+            Debug.Log(items[i].GetID());
+
+            items[i].SetPrice(itemLibrary.GetItemSpriteLibraryById(items[i].GetID()).itemPrice);
         }
     }
 
-    private void OnGetPrice(int itemID, Transform parent)
+    private void OnGetPrice(int itemPrice, Transform parent)
     {
         UIPrice.SetActive(true);
-        priceTxt.text = itemLibrary.GetItemSpriteLibraryById(itemID).itemPrice.ToString();
+        priceTxt.text = itemPrice.ToString();
         UIPrice.transform.parent = parent;
         UIPrice.transform.localPosition = new Vector3(0, .5f, 0);
     }
