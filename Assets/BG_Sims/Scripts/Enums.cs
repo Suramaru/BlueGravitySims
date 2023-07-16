@@ -18,3 +18,9 @@ public enum ItemsType
     Hair,
     Hat
 }
+
+public enum UserType
+{
+    NPC,
+    Player
+}

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ProgressManager : MonoBehaviour
 {
-    public Action<string> SetDialog;
+    public Action<string, UserType> SetDialog;
 
     private Dialogs dialogs;
     private int maxProgress;
@@ -23,7 +23,7 @@ public class ProgressManager : MonoBehaviour
 
     public void DialogToSay()
     {
-        SetDialog?.Invoke(dialogs.GetDialogById(currentProgress));
+        SetDialog?.Invoke(dialogs.GetDialogById(currentProgress), UserType.NPC);
     }
 
     public void ActualiceProgress()

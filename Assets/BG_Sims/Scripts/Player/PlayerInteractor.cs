@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerInteractor : MonoBehaviour
 {
     public Action InteractWithNPC;
+    public Action WithOutMoney;
     public Action<int, ItemsType> BuyItem;
 
     private PlayerCoinsController coinsController;
@@ -63,7 +64,7 @@ public class PlayerInteractor : MonoBehaviour
             coinsController.SubtractCoins(price);
         }
         else
-            Debug.Log("No hay plata");
+            WithOutMoney?.Invoke();
     }
 
     private void Speak()

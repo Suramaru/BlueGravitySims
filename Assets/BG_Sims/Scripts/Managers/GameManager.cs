@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         playerCoinsController.CoinsChanged += OnCoinsChanged;
         progressManager.SetDialog += OnSetDialog;
         playerInteractor.BuyItem += OnBuyItem;
+        playerInteractor.WithOutMoney += OnWithOutMoney;
 
         shopManager.Initialice(itemLibrary);
         playerCoinsController.RestartCoins();
@@ -48,13 +49,18 @@ public class GameManager : MonoBehaviour
         uIManager.SetCoinsToUI(coins);
     }
 
-    private void OnSetDialog(string dialog)
+    private void OnSetDialog(string dialog, UserType userType)
     {
-        uIManager.SetDialogUI(dialog);
+        uIManager.SetDialogUI(dialog, userType);
     }
 
     private void OnBuyItem(int itemID, ItemsType itemsType)
     {
         playerVisualController.SetSpriteLibrary(itemsType, itemLibrary.GetItemSpriteLibraryById(itemID).libraryAsset);
+    }
+
+    private void OnWithOutMoney()
+    {
+        uIManager.SetDialogUI("I don't have enough money", UserType.Player);
     }
 }

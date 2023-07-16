@@ -36,10 +36,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetDialogUI(string dialog)
+    public void SetDialogUI(string dialog, UserType userType)
     {
         LeanTween.cancelAll();
-        dialogUI.SetDialog(dialog);
+        dialogUI.SetDialog(dialog, userType);
         SetUi(UIType.Dialog);
     }
 
@@ -50,6 +50,5 @@ public class UIManager : MonoBehaviour
 
     private void OnDialogFinish()
     {
-        LeanTween.delayedCall(2, () => dialogUI.Show(false));
     }
 }
