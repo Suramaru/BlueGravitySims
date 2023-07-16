@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65107d5e72bdbdd41b438731883ff427, type: 3}
+  m_Name: Dialogs
+  m_EditorClassIdentifier: 
+  dialogs:
+  - id: 0
+    dialog: Hey, why are you naked?
+  - id: 1
+    dialog: You can take a underwear from the shop.
+  - id: 2
+    dialog: When you take it, you can come and speak to me if you want to bou a better
+      clothes.
+  - id: 3
+    dialog: I'll wait for you here.

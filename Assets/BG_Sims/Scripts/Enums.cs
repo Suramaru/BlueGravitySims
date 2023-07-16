@@ -5,3 +5,10 @@ public enum ItemType
     Hair,
     Hat
 }
+
+public enum UIType
+{
+    MainMenu,
+    Coins,
+    Dialog
+}

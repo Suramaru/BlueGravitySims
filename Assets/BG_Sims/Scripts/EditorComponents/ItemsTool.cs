@@ -6,14 +6,14 @@ using UnityEngine;
 public class ItemsTool : MonoBehaviour
 {
 #if UNITY_EDITOR
-    [CustomEditor(typeof(ItemLibrary))]
+    [CustomEditor(typeof(ItemLibraryManager))]
     public class SpriteLibraryEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
 
-            ItemLibrary spriteLibrary = (ItemLibrary)target;
+            ItemLibraryManager spriteLibrary = (ItemLibraryManager)target;
 
             if (GUILayout.Button("Assign IDs to Existing Entries"))
             {

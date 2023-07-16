@@ -5,19 +5,22 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private PlayerController characterMovement;
+    [SerializeField] private CoinsController coinsController;
+    [SerializeField] private UIManager uIManager;
 
     private bool onGameplay;
 
     private void Start()
     {
         characterMovement.Initialice();
+        coinsController.CoinsChanged += OnCoinsChanged;
+
+        coinsController.RestartCoins();
+        uIManager.SetUi(UIType.Coins);
     }
 
-    private void Update()
+    private void OnCoinsChanged(int coins)
     {
-        if (Input.GetKeyDown(KeyCode.P))
-            characterMovement.Conclude();
-        if (Input.GetKeyDown(KeyCode.O))
-            characterMovement.Initialice();
+        uIManager.SetCoinsToUI(coins);
     }
 }

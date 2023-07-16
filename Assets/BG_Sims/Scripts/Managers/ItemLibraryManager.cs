@@ -4,7 +4,7 @@ using UnityEngine.U2D.Animation;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/SpriteLibraryManager", order = 1)]
 
-public class ItemLibrary : ScriptableObject
+public class ItemLibraryManager : ScriptableObject
 {
     [SerializeField] private ItemLibraryEntry[] spriteHatsLibraries;
     [SerializeField] private ItemLibraryEntry[] spriteHairsLibraries;
