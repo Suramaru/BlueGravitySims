@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    public Action InteractWithNPC;
     public Action WithOutMoney;
+    public Action OpenMinigame;
+    public Action InteractWithNPC;
     public Action<int, ItemsType> BuyItem;
 
-    private PlayerCoinsController coinsController;
     private CoroutineHandle interactionCoroutine;
+    private PlayerCoinsController coinsController;
 
     private bool onInteractionRange;
 
@@ -22,16 +23,16 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("ShopKeeper") || collision.CompareTag("Item"))
+        if (collision.CompareTag("ShopKeeper") || collision.CompareTag("Item") || collision.CompareTag("Minigame"))
         {
-            onInteractionRange = true;
+            onInteractionRange = true;            
             interactionCoroutine = Timing.RunCoroutine(WaitingForInteraction(collision));
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("ShopKeeper") || collision.CompareTag("Item"))
+        if (collision.CompareTag("ShopKeeper") || collision.CompareTag("Item") || collision.CompareTag("Minigame"))
         {
             onInteractionRange = false;
             Timing.KillCoroutines(interactionCoroutine);
@@ -44,13 +45,21 @@ public class PlayerInteractor : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (collision.GetComponent<InteractorType>().interactorType == InteractorsType.Item)
+                switch (collision.GetComponent<InteractorType>().interactorType)
                 {
-                    ItemBase currentItem = collision.GetComponent<ItemBase>();
-                    TryToBuy(currentItem.Price, currentItem.ItemID, currentItem.itemType);
+                    case InteractorsType.NPC:
+                        Speak();
+                        break;
+                    case InteractorsType.Item:
+                        ItemBase currentItem = collision.GetComponent<ItemBase>();
+                        TryToBuy(currentItem.Price, currentItem.ItemID, currentItem.itemType);
+                        break;
+                    case InteractorsType.Minigame:
+                        OpenMinigame?.Invoke();
+                        break;
+                    default:
+                        break;
                 }
-                else
-                    Speak();
             }
             yield return 0f;
         }

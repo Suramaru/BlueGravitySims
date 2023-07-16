@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager uIManager;
     [SerializeField] private ProgressManager progressManager;
     [SerializeField] private ShopManager shopManager;
+    [SerializeField] private MinigameManager minigameManager;
 
     [Header("Scriptables")]
     [SerializeField] private ItemLibraryManager itemLibrary;
@@ -26,16 +27,16 @@ public class GameManager : MonoBehaviour
         characterMovement.Initialice();
         progressManager.Initialice(dialogs);
 
-
         playerCoinsController.CoinsChanged += OnCoinsChanged;
         progressManager.SetDialog += OnSetDialog;
         playerInteractor.BuyItem += OnBuyItem;
         playerInteractor.WithOutMoney += OnWithOutMoney;
+        playerInteractor.InteractWithNPC += OnInteractWithNPC;
+        playerInteractor.OpenMinigame += OnOpenMinigame;
+        minigameManager.OptionSelected += OnOptionSelected;
 
         shopManager.Initialice(itemLibrary);
         playerCoinsController.RestartCoins();
-        uIManager.SetUi(UIType.Coins);
-        progressManager.DialogToSay();
     }
 
     private void Update()
@@ -57,10 +58,36 @@ public class GameManager : MonoBehaviour
     private void OnBuyItem(int itemID, ItemsType itemsType)
     {
         playerVisualController.SetSpriteLibrary(itemsType, itemLibrary.GetItemSpriteLibraryById(itemID).libraryAsset);
+
+        if (itemsType == ItemsType.Underwear)
+        {
+            progressManager.ActualiceMaxProgress(7);
+            uIManager.SetUI(UIType.Coins);
+            minigameManager.EnableMinigame();
+        }
     }
 
     private void OnWithOutMoney()
     {
         uIManager.SetDialogUI("I don't have enough money", UserType.Player);
+    }
+
+    private void OnInteractWithNPC()
+    {
+        progressManager.ActualiceProgress();
+    }
+
+    private void OnOptionSelected(bool isTrue, string message, int number)
+    {
+        if (!isTrue)
+            playerCoinsController.SubtractCoins();
+
+        uIManager.SetMinigameResultUI(message, number);
+    }
+
+    private void OnOpenMinigame()
+    {
+        minigameManager.StartMinigame();
+        uIManager.SetUI(UIType.Minigame);
     }
 }

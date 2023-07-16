@@ -1,14 +1,16 @@
 public enum UIType
 {
-    MainMenu,
+    Minigame,
     Coins,
-    Dialog
+    Dialog,
+    Inventory
 }
 
 public enum InteractorsType
 {
     NPC,
-    Item
+    Item,
+    Minigame
 }
 
 public enum ItemsType

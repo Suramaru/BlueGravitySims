@@ -8,6 +8,7 @@ public class ProgressManager : MonoBehaviour
     public Action<string, UserType> SetDialog;
 
     private Dialogs dialogs;
+
     private int maxProgress;
     private int currentProgress = 0;
 
@@ -21,22 +22,23 @@ public class ProgressManager : MonoBehaviour
         dialogs = _dialogs;
     }
 
-    public void DialogToSay()
+    private void DialogToSay()
     {
         SetDialog?.Invoke(dialogs.GetDialogById(currentProgress), UserType.NPC);
     }
 
     public void ActualiceProgress()
     {
-        if (currentProgress  <= maxProgress)
+        if (currentProgress <= maxProgress)
         {
-            currentProgress++;
             DialogToSay();
+            currentProgress++;
         }
     }
 
-    public void ActualiceMaxProgress()
+    public void ActualiceMaxProgress(int nextMaxProgress)
     {
-        maxProgress = 6;
+        currentProgress = maxProgress + 1;
+        maxProgress = nextMaxProgress;
     }
 }

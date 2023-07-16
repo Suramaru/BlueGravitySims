@@ -9,27 +9,32 @@ public class UIManager : MonoBehaviour
     public Action StartGame;
     public Action CountDownFinish;
 
-    [SerializeField] private CoinsUI scoreUI;
-    [SerializeField] private MainMenuUI mainMenuUI;
+    [SerializeField] private HUDUI HUDUI;
+    [SerializeField] private MinigameUI minigameUI;
     [SerializeField] private DialogUI dialogUI;
+    [SerializeField] private InventoryUI inventoryUI;
 
     private void Awake()
     {
-        dialogUI.DialogFinish += OnDialogFinish;
+        HUDUI.OpenInventoryUI += OnOpenInventory;
+        HUDUI.CloseInventoryUI += OnCloseInventory;
     }
 
-    public void SetUi(UIType currentType)
+    public void SetUI(UIType currentType)
     {
         switch (currentType)
         {
-            case UIType.MainMenu:
-                mainMenuUI.Show(true);
+            case UIType.Minigame:
+                minigameUI.Show(true);
                 break;
             case UIType.Coins:
-                scoreUI.Show(true);
+                HUDUI.Show(true);
                 break;
             case UIType.Dialog:
                 dialogUI.Show(true);
+                break;
+            case UIType.Inventory:
+                inventoryUI.Show(true);
                 break;
             default:
                 break;
@@ -40,15 +45,27 @@ public class UIManager : MonoBehaviour
     {
         LeanTween.cancelAll();
         dialogUI.SetDialog(dialog, userType);
-        SetUi(UIType.Dialog);
+        SetUI(UIType.Dialog);
     }
 
     public void SetCoinsToUI(float score)
     {
-        scoreUI.SetCoinsUI(score);
+        HUDUI.SetCoinsUI(score);
     }
 
-    private void OnDialogFinish()
+    public void SetMinigameResultUI(string dialog, int number)
     {
+        minigameUI.ShowMessages(dialog, number);
+        SetUI(UIType.Dialog);
+    }
+
+    private void OnOpenInventory()
+    {
+        SetUI(UIType.Inventory);
+    }
+
+    private void OnCloseInventory()
+    {
+        inventoryUI.Show(false);
     }
 }

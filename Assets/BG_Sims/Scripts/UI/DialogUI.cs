@@ -32,6 +32,10 @@ public class DialogUI : UIBase
     public void SetDialog(string dialog, UserType userType)
     {
         LeanTween.cancel(gameObject);
+
+        if (dialogCoroutine != null)
+            Timing.KillCoroutines(dialogCoroutine);
+
         dialogCoroutine = Timing.RunCoroutine(WriteText(dialog, userType));
     }
 

@@ -9,6 +9,9 @@ public class ItemsTool : MonoBehaviour
     [CustomEditor(typeof(ItemLibraryManager))]
     public class SpriteLibraryEditor : Editor
     {
+        /// <summary>
+        /// Set a custom id for the items created
+        /// </summary>
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();

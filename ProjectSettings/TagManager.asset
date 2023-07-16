@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ShopKeeper
   - Item
+  - Minigame
   layers:
   - Default
   - TransparentFX

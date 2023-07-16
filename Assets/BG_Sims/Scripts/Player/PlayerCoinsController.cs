@@ -14,6 +14,9 @@ public class PlayerCoinsController : MonoBehaviour
         get { return coins; }
         private set
         {
+            if(coins <= 0)
+                coins = 0;
+
             coins = value;
             CoinsChanged?.Invoke(coins);
         }
@@ -28,6 +31,16 @@ public class PlayerCoinsController : MonoBehaviour
     public void SubtractCoins(int value)
     {
         Coins -= value;
+    }
+
+    public void SubtractCoins()
+    {
+        Coins--;
+    }
+
+    public void AddCoins(int value)
+    {
+        Coins += value;
     }
 
     public void AddCoins()
