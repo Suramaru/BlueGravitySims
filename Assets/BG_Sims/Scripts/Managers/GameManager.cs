@@ -15,10 +15,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ProgressManager progressManager;
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private MinigameManager minigameManager;
+    [SerializeField] private InventoryPanel inventoryPanel;
 
     [Header("Scriptables")]
     [SerializeField] private ItemLibraryManager itemLibrary;
     [SerializeField] private Dialogs dialogs;
+    [SerializeField] private ItemContainer itemContainer;
 
     private bool onGameplay;
 
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
         playerInteractor.WithOutMoney += OnWithOutMoney;
         playerInteractor.InteractWithNPC += OnInteractWithNPC;
         playerInteractor.OpenMinigame += OnOpenMinigame;
+        playerInteractor.CanSellItems += OnCanSellItems;
         minigameManager.OptionSelected += OnOptionSelected;
 
         shopManager.Initialice(itemLibrary);
@@ -55,16 +58,17 @@ public class GameManager : MonoBehaviour
         uIManager.SetDialogUI(dialog, userType);
     }
 
-    private void OnBuyItem(int itemID, ItemsType itemsType)
+    private void OnBuyItem(int itemID, ItemsType itemsType, InventoryItem inventoryItem)
     {
-        playerVisualController.SetSpriteLibrary(itemsType, itemLibrary.GetItemSpriteLibraryById(itemID).libraryAsset);
-
         if (itemsType == ItemsType.Underwear)
         {
+            playerVisualController.SetSpriteLibrary(itemsType, itemLibrary.GetItemSpriteLibraryById(itemID).libraryAsset);
             progressManager.ActualiceMaxProgress(7);
             uIManager.SetUI(UIType.Coins);
             minigameManager.EnableMinigame();
         }
+        else
+            itemContainer.AddItemToInventory(inventoryItem);
     }
 
     private void OnWithOutMoney()
@@ -77,10 +81,12 @@ public class GameManager : MonoBehaviour
         progressManager.ActualiceProgress();
     }
 
-    private void OnOptionSelected(bool isTrue, string message, int number)
+    private void OnOptionSelected(bool isTrue, string message, int number, InventoryItem inventoryItem)
     {
         if (!isTrue)
             playerCoinsController.SubtractCoins();
+        else
+            itemContainer.AddItemToInventory(inventoryItem, 10);
 
         uIManager.SetMinigameResultUI(message, number);
     }
@@ -89,5 +95,10 @@ public class GameManager : MonoBehaviour
     {
         minigameManager.StartMinigame();
         uIManager.SetUI(UIType.Minigame);
+    }
+
+    private void OnCanSellItems(bool isTrue)
+    {
+        inventoryPanel.CanSell(isTrue);
     }
 }

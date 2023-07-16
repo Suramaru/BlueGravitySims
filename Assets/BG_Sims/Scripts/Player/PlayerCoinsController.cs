@@ -25,7 +25,7 @@ public class PlayerCoinsController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
-            AddCoins();
+            AddCoins(30);
     }
 
     public void SubtractCoins(int value)

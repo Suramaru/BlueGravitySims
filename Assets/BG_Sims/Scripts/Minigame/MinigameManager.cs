@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class MinigameManager : MonoBehaviour
 {
-    public Action<bool, string, int> OptionSelected;
+    public Action<bool, string, int, InventoryItem> OptionSelected;
 
     [SerializeField] private Button parButton;
     [SerializeField] private Button imparButton;
     [SerializeField] private BoxCollider2D interactor;
+    [SerializeField] private InventoryItem inventoryItem;
 
     private bool guessed;
     private string textToShow;
@@ -60,7 +61,7 @@ public class MinigameManager : MonoBehaviour
 
     private void ShowResult()
     {
-        OptionSelected?.Invoke(guessed, textToShow, number);
+        OptionSelected?.Invoke(guessed, textToShow, number, inventoryItem);
         StartMinigame();
     }
 }

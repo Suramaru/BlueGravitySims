@@ -9,6 +9,7 @@ public class ItemBase : MonoBehaviour
     public ItemsType itemType;
 
     [SerializeField] private int itemID;
+    [SerializeField] private InventoryItem inventoryItem;
 
     private int price;
 
@@ -22,6 +23,12 @@ public class ItemBase : MonoBehaviour
     {
         get { return itemID; }
         private set { itemID = value; }
+    }
+
+    public InventoryItem InventoryItem
+    {
+        get { return inventoryItem; }
+        private set { inventoryItem = value; }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

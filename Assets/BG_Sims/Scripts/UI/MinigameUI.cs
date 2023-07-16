@@ -24,6 +24,8 @@ public class MinigameUI : UIBase
 
     private void CloseUI()
     {
+        resultText.text = ""; 
+        numberText.text = "";
         Show(false);
     }
 }

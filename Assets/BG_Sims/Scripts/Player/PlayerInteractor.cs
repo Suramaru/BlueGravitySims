@@ -9,7 +9,8 @@ public class PlayerInteractor : MonoBehaviour
     public Action WithOutMoney;
     public Action OpenMinigame;
     public Action InteractWithNPC;
-    public Action<int, ItemsType> BuyItem;
+    public Action<bool> CanSellItems;
+    public Action<int, ItemsType, InventoryItem> BuyItem;
 
     private CoroutineHandle interactionCoroutine;
     private PlayerCoinsController coinsController;
@@ -35,6 +36,7 @@ public class PlayerInteractor : MonoBehaviour
         if (collision.CompareTag("ShopKeeper") || collision.CompareTag("Item") || collision.CompareTag("Minigame"))
         {
             onInteractionRange = false;
+            CanSellItems?.Invoke(false);
             Timing.KillCoroutines(interactionCoroutine);
         }
     }
@@ -48,11 +50,12 @@ public class PlayerInteractor : MonoBehaviour
                 switch (collision.GetComponent<InteractorType>().interactorType)
                 {
                     case InteractorsType.NPC:
+                        CanSellItems?.Invoke(true);
                         Speak();
                         break;
                     case InteractorsType.Item:
                         ItemBase currentItem = collision.GetComponent<ItemBase>();
-                        TryToBuy(currentItem.Price, currentItem.ItemID, currentItem.itemType);
+                        TryToBuy(currentItem.Price, currentItem.ItemID, currentItem.itemType, currentItem.InventoryItem);
                         break;
                     case InteractorsType.Minigame:
                         OpenMinigame?.Invoke();
@@ -65,11 +68,11 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-    private void TryToBuy(int price, int itemID, ItemsType itemsType)
+    private void TryToBuy(int price, int itemID, ItemsType itemsType, InventoryItem inventoryItem)
     {
         if (coinsController.Coins >= price)
         {
-            BuyItem?.Invoke(itemID, itemsType);
+            BuyItem?.Invoke(itemID, itemsType, inventoryItem);
             coinsController.SubtractCoins(price);
         }
         else
