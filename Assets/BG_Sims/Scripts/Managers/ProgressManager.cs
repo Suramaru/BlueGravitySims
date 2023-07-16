@@ -7,14 +7,18 @@ public class ProgressManager : MonoBehaviour
 {
     public Action<string> SetDialog;
 
-    [SerializeField] private Dialogs dialogs;
-
+    private Dialogs dialogs;
     private int maxProgress;
     private int currentProgress = 0;
 
     private void Awake()
     {
         maxProgress = 3;
+    }
+
+    public void Initialice(Dialogs _dialogs)
+    {
+        dialogs = _dialogs;
     }
 
     public void DialogToSay()

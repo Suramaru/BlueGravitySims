@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinsController : MonoBehaviour
+public class PlayerCoinsController : MonoBehaviour
 {
     public Action<int> CoinsChanged;
 
@@ -23,6 +23,11 @@ public class CoinsController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
             AddCoins();
+    }
+
+    public void SubtractCoins(int value)
+    {
+        Coins -= value;
     }
 
     public void AddCoins()

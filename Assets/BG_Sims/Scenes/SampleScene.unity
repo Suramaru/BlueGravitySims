@@ -561,6 +561,7 @@ GameObject:
   - component: {fileID: 155532013}
   - component: {fileID: 155532016}
   - component: {fileID: 155532015}
+  - component: {fileID: 155532017}
   m_Layer: 0
   m_Name: Hair1
   m_TagString: Item
@@ -596,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
   itemID: 218622977
 --- !u!61 &155532016
 BoxCollider2D:
@@ -642,6 +644,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07, y: 0.9880452}
   m_EdgeRadius: 0
+--- !u!114 &155532017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155532012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cef741b3616f16499675fb778c045f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactorType: 1
 --- !u!1 &216157578
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +751,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2138270292}
-  - {fileID: 1229882986}
   - {fileID: 1005890115}
   - {fileID: 1151071630}
   - {fileID: 299835626}
@@ -787,7 +801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079cfa0e4db86fe4888246df09e1c195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogs: {fileID: 11400000, guid: 24aa8e7a0cd05914a8c649b801f36990, type: 2}
 --- !u!1 &413320360
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +813,7 @@ GameObject:
   - component: {fileID: 413320362}
   - component: {fileID: 413320364}
   - component: {fileID: 413320363}
+  - component: {fileID: 413320365}
   m_Layer: 0
   m_Name: Underwear2
   m_TagString: Item
@@ -886,6 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
   itemID: -546472886
 --- !u!61 &413320364
 BoxCollider2D:
@@ -932,6 +947,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07, y: 0.9701134}
   m_EdgeRadius: 0
+--- !u!114 &413320365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413320360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cef741b3616f16499675fb778c045f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactorType: 1
 --- !u!1 &523474081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1106,7 @@ GameObject:
   - component: {fileID: 572182854}
   - component: {fileID: 572182857}
   - component: {fileID: 572182856}
+  - component: {fileID: 572182858}
   m_Layer: 0
   m_Name: Hat1
   m_TagString: Item
@@ -1113,6 +1142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
   itemID: 151674157
 --- !u!61 &572182857
 BoxCollider2D:
@@ -1159,6 +1189,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07, y: 1.0597733}
   m_EdgeRadius: 0
+--- !u!114 &572182858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572182853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cef741b3616f16499675fb778c045f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactorType: 1
 --- !u!1 &608547819
 GameObject:
   m_ObjectHideFlags: 3
@@ -7397,6 +7440,7 @@ GameObject:
   - component: {fileID: 883108021}
   - component: {fileID: 883108022}
   - component: {fileID: 883108023}
+  - component: {fileID: 883108024}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7541,6 +7585,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c212568ebe6ecf542b4641c53d8ff20f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &883108024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883108016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d024ed5575b9f04da7f4a9ddbd1e3c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothSpriteLibrary: {fileID: 2073304202}
+  HairSpriteLibrary: {fileID: 1552875269}
+  HatSpriteLibrary: {fileID: 786956940}
 --- !u!1 &905495345
 GameObject:
   m_ObjectHideFlags: 0
@@ -7777,6 +7836,7 @@ GameObject:
   - component: {fileID: 940576524}
   - component: {fileID: 940576526}
   - component: {fileID: 940576525}
+  - component: {fileID: 940576527}
   m_Layer: 0
   m_Name: Underwear1
   m_TagString: Item
@@ -7863,6 +7923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
   itemID: 1404085375
 --- !u!61 &940576526
 BoxCollider2D:
@@ -7909,6 +7970,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07, y: 0.9940227}
   m_EdgeRadius: 0
+--- !u!114 &940576527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940576522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cef741b3616f16499675fb778c045f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactorType: 1
 --- !u!1 &987748689
 GameObject:
   m_ObjectHideFlags: 0
@@ -7921,6 +7995,7 @@ GameObject:
   - component: {fileID: 987748691}
   - component: {fileID: 987748693}
   - component: {fileID: 987748692}
+  - component: {fileID: 987748694}
   m_Layer: 0
   m_Name: Cloth2
   m_TagString: Item
@@ -8007,6 +8082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 1
   itemID: -167506141
 --- !u!61 &987748693
 BoxCollider2D:
@@ -8053,6 +8129,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07, y: 1.0179319}
   m_EdgeRadius: 0
+--- !u!114 &987748694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987748689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cef741b3616f16499675fb778c045f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactorType: 1
 --- !u!1 &1000049191
 GameObject:
   m_ObjectHideFlags: 0
@@ -8264,7 +8353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020740840}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8314,7 +8403,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8753,37 +8842,6 @@ Transform:
   m_Father: {fileID: 216157579}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1229882985
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1229882986}
-  m_Layer: 0
-  m_Name: ShopManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1229882986
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229882985}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 295443819}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317075397
 GameObject:
   m_ObjectHideFlags: 0
@@ -8888,6 +8946,7 @@ GameObject:
   - component: {fileID: 1320921016}
   - component: {fileID: 1320921018}
   - component: {fileID: 1320921017}
+  - component: {fileID: 1320921019}
   m_Layer: 0
   m_Name: Cloth1
   m_TagString: Item
@@ -8974,6 +9033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 1
   itemID: 298014351
 --- !u!61 &1320921018
 BoxCollider2D:
@@ -9020,6 +9080,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07, y: 0.97609055}
   m_EdgeRadius: 0
+--- !u!114 &1320921019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320921014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cef741b3616f16499675fb778c045f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactorType: 1
 --- !u!1 &1350890844
 GameObject:
   m_ObjectHideFlags: 0
@@ -9135,7 +9208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3c8873b158ce0419ab95842ed6b142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemLibrary: {fileID: 11400000, guid: 410c2d619e785274fb116988fb8083d8, type: 2}
   priceTxt: {fileID: 821447319}
   UIPrice: {fileID: 1000049191}
 --- !u!1 &1474254577
@@ -14212,6 +14284,7 @@ GameObject:
   - component: {fileID: 1609282758}
   - component: {fileID: 1609282761}
   - component: {fileID: 1609282760}
+  - component: {fileID: 1609282762}
   m_Layer: 0
   m_Name: Hat2
   m_TagString: Item
@@ -14247,6 +14320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
   itemID: -1451630568
 --- !u!61 &1609282761
 BoxCollider2D:
@@ -14293,6 +14367,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07, y: 1.0358639}
   m_EdgeRadius: 0
+--- !u!114 &1609282762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609282757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cef741b3616f16499675fb778c045f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactorType: 1
 --- !u!1 &1633385277
 GameObject:
   m_ObjectHideFlags: 0
@@ -14304,6 +14391,7 @@ GameObject:
   - component: {fileID: 1633385278}
   - component: {fileID: 1633385281}
   - component: {fileID: 1633385280}
+  - component: {fileID: 1633385282}
   m_Layer: 0
   m_Name: Hair2
   m_TagString: Item
@@ -14339,6 +14427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8e5ce246f74744944f7f47db08931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
   itemID: -1418347238
 --- !u!61 &1633385281
 BoxCollider2D:
@@ -14385,6 +14474,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07, y: 1.0059773}
   m_EdgeRadius: 0
+--- !u!114 &1633385282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633385277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cef741b3616f16499675fb778c045f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactorType: 1
 --- !u!1 &1808911231
 GameObject:
   m_ObjectHideFlags: 0
@@ -14840,6 +14942,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterMovement: {fileID: 883108018}
-  coinsController: {fileID: 883108022}
+  playerVisualController: {fileID: 883108024}
+  playerInteractor: {fileID: 883108023}
+  playerCoinsController: {fileID: 883108022}
   uIManager: {fileID: 1151071631}
   progressManager: {fileID: 299835627}
+  shopManager: {fileID: 1448679761}
+  itemLibrary: {fileID: 11400000, guid: 410c2d619e785274fb116988fb8083d8, type: 2}
+  dialogs: {fileID: 11400000, guid: 24aa8e7a0cd05914a8c649b801f36990, type: 2}

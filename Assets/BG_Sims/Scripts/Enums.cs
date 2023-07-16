@@ -4,3 +4,17 @@ public enum UIType
     Coins,
     Dialog
 }
+
+public enum InteractorsType
+{
+    NPC,
+    Item
+}
+
+public enum ItemsType
+{
+    Underwear,
+    Cloth,
+    Hair,
+    Hat
+}
