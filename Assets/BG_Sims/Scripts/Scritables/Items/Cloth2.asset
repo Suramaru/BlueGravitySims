@@ -16,3 +16,5 @@ MonoBehaviour:
   equippable: 1
   stackable: 0
   icon: {fileID: -1444244006, guid: ddc5159a8065c894fa149cc3d2db43b1, type: 3}
+  id: -167506141
+  itemsType: 1

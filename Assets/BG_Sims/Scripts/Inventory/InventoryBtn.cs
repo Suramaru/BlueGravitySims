@@ -7,17 +7,27 @@ using UnityEngine.UI;
 
 public class InventoryBtn : MonoBehaviour
 {
-    public Action SellItem;
+    public Action<int, int, ItemsType> InteractWithItem;
+
+    public int ValueToSell
+    {
+        get { return valueToSell; }
+        private set { valueToSell = value; }
+    }
 
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI text;
 
+    private int valueToSell;
     private Button itemBtn;
     private bool inRangeToSell;
+    private int iD;
+    private ItemsType itemsType;
 
     private void Awake()
     {
-        itemBtn.onClick.AddListener(SellCurrentItem);
+        itemBtn = GetComponent<Button>();
+        itemBtn.onClick.AddListener(Interaction);
     }
 
     public void SetItemToSell(bool isTrue)
@@ -27,8 +37,13 @@ public class InventoryBtn : MonoBehaviour
 
     public void SetItem(ItemSlot itemSlot)
     {
+        itemBtn.interactable = true;
+
+        iD = itemSlot.Id;
+        itemsType = itemSlot.itemsType;
         icon.gameObject.SetActive(true);
         icon.sprite = itemSlot.inventoryItem.icon;
+        valueToSell = itemSlot.count + 1;
 
         if (itemSlot.inventoryItem.stackable)
         {
@@ -43,13 +58,12 @@ public class InventoryBtn : MonoBehaviour
     {
         icon.sprite = null;
         icon.gameObject.SetActive(false);
-
         text.gameObject.SetActive(false);
     }
 
-    private void SellCurrentItem()
+    private void Interaction()
     {
-        if(inRangeToSell)
-            SellItem?.Invoke();
+        if (inRangeToSell)
+            InteractWithItem?.Invoke(iD, valueToSell, itemsType);
     }
 }

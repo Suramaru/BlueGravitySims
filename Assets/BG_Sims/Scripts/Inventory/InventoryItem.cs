@@ -9,4 +9,6 @@ public class InventoryItem : ScriptableObject
     public bool equippable;
     public bool stackable;
     public Sprite icon;
+    public int id;
+    public ItemsType itemsType;
 }

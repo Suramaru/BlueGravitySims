@@ -14,23 +14,27 @@ public class ItemContainer : ScriptableObject
         if (inventoryItem.stackable)
         {
             ItemSlot itemSlot = slots.Find(x => x.inventoryItem == inventoryItem);
-            if(itemSlot != null)
+            if (itemSlot != null)
                 itemSlot.count += count;
             else
             {
                 itemSlot = slots.Find(x => x.inventoryItem == null);
-                if(itemSlot != null)
+                if (itemSlot != null)
                 {
                     itemSlot.inventoryItem = inventoryItem;
                     itemSlot.count = count;
                 }
             }
+            itemSlot.Id = inventoryItem.id;
         }
         else
         {
             ItemSlot itemSlot = slots.Find(x => x.inventoryItem == null);
-            if(itemSlot != null)
+            if (itemSlot != null)
                 itemSlot.inventoryItem = inventoryItem;
+
+            itemSlot.Id = inventoryItem.id;
+            itemSlot.itemsType = inventoryItem.itemsType;
         }
     }
 }
@@ -40,4 +44,6 @@ public class ItemSlot
 {
     public InventoryItem inventoryItem;
     public int count;
+    public int Id;
+    public ItemsType itemsType;
 }

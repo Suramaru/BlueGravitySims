@@ -15,19 +15,37 @@ MonoBehaviour:
   slots:
   - inventoryItem: {fileID: 0}
     count: 0
+    Id: 0
+    itemsType: 1
   - inventoryItem: {fileID: 0}
     count: 0
+    Id: 0
+    itemsType: 1
   - inventoryItem: {fileID: 0}
     count: 0
+    Id: 0
+    itemsType: 1
   - inventoryItem: {fileID: 0}
     count: 0
+    Id: 0
+    itemsType: 1
   - inventoryItem: {fileID: 0}
     count: 0
+    Id: 0
+    itemsType: 0
   - inventoryItem: {fileID: 0}
     count: 0
+    Id: 0
+    itemsType: 0
   - inventoryItem: {fileID: 0}
     count: 0
+    Id: 0
+    itemsType: 0
   - inventoryItem: {fileID: 0}
     count: 0
+    Id: 0
+    itemsType: 0
   - inventoryItem: {fileID: 0}
     count: 0
+    Id: 0
+    itemsType: 0

@@ -1,6 +1,8 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private MinigameManager minigameManager;
     [SerializeField] private InventoryPanel inventoryPanel;
+    [SerializeField] private SpriteLibraryAsset baseAsset;
 
     [Header("Scriptables")]
     [SerializeField] private ItemLibraryManager itemLibrary;
@@ -37,20 +40,31 @@ public class GameManager : MonoBehaviour
         playerInteractor.OpenMinigame += OnOpenMinigame;
         playerInteractor.CanSellItems += OnCanSellItems;
         minigameManager.OptionSelected += OnOptionSelected;
+        inventoryPanel.ShowInteractionUI += OnShowInteractionUI;
+        uIManager.ItemSelled += OnItemSelled;
+        uIManager.ItemEquiped += OnItemEquiped;
 
         shopManager.Initialice(itemLibrary);
         playerCoinsController.RestartCoins();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-            progressManager.ActualiceProgress();
-    }
-
     private void OnCoinsChanged(int coins)
     {
         uIManager.SetCoinsToUI(coins);
+    }    
+    
+    private void OnItemSelled(int coins, ItemsType itemsType)
+    {
+        if(itemsType != ItemsType.None)
+            playerVisualController.SetSpriteLibrary(itemsType);
+
+        inventoryPanel.RemoveItem();
+        playerCoinsController.AddCoins(coins);
+    }    
+    
+    private void OnItemEquiped(int ItemID, ItemsType itemsType)
+    {
+        playerVisualController.SetSpriteLibrary(itemsType, itemLibrary.GetItemSpriteLibraryById(ItemID).libraryAsset);
     }
 
     private void OnSetDialog(string dialog, UserType userType)
@@ -60,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     private void OnBuyItem(int itemID, ItemsType itemsType, InventoryItem inventoryItem)
     {
-        if (itemsType == ItemsType.Underwear)
+        if (itemsType == ItemsType.None)
         {
             playerVisualController.SetSpriteLibrary(itemsType, itemLibrary.GetItemSpriteLibraryById(itemID).libraryAsset);
             progressManager.ActualiceMaxProgress(7);
@@ -100,5 +114,10 @@ public class GameManager : MonoBehaviour
     private void OnCanSellItems(bool isTrue)
     {
         inventoryPanel.CanSell(isTrue);
+    }
+
+    private void OnShowInteractionUI(int value, int _itemID, ItemsType itemsType)
+    {
+        uIManager.ShowInteractionUI(value, _itemID, itemsType);
     }
 }

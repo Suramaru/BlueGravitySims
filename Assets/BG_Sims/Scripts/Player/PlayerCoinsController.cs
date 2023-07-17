@@ -14,10 +14,11 @@ public class PlayerCoinsController : MonoBehaviour
         get { return coins; }
         private set
         {
-            if(coins <= 0)
+            coins = value;
+
+            if (coins <= 0)
                 coins = 0;
 
-            coins = value;
             CoinsChanged?.Invoke(coins);
         }
     }

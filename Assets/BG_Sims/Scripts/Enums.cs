@@ -3,7 +3,8 @@ public enum UIType
     Minigame,
     Coins,
     Dialog,
-    Inventory
+    Inventory,
+    Interaciton
 }
 
 public enum InteractorsType
@@ -15,7 +16,7 @@ public enum InteractorsType
 
 public enum ItemsType
 {
-    Underwear,
+    None,
     Cloth,
     Hair,
     Hat

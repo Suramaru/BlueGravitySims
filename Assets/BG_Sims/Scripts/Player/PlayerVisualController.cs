@@ -9,24 +9,32 @@ public class PlayerVisualController : MonoBehaviour
     [SerializeField] private SpriteLibrary HairSpriteLibrary;
     [SerializeField] private SpriteLibrary HatSpriteLibrary;
 
+    [SerializeField] private SpriteLibraryAsset baseLibrary;
+
     private Dictionary<ItemsType, SpriteLibrary> spriteLibraries;
 
     private void Awake()
     {
         spriteLibraries = new Dictionary<ItemsType, SpriteLibrary>()
         {
-            { ItemsType.Underwear, clothSpriteLibrary },
+            { ItemsType.None, clothSpriteLibrary },
             { ItemsType.Cloth, clothSpriteLibrary },
             { ItemsType.Hair, HairSpriteLibrary },
             { ItemsType.Hat, HatSpriteLibrary }
         };
     }
 
-    public void SetSpriteLibrary(ItemsType currentItemType, SpriteLibraryAsset spriteLibraryAsset)
+    public void SetSpriteLibrary(ItemsType currentItemType, SpriteLibraryAsset spriteLibraryAsset = null)
     {
         if (spriteLibraries.TryGetValue(currentItemType, out SpriteLibrary spriteLibrary))
         {
             spriteLibrary.spriteLibraryAsset = spriteLibraryAsset;
+
+            if (spriteLibraryAsset == null)
+                spriteLibrary.GetComponent<SpriteRenderer>().sprite = null;
+
+            if (spriteLibraryAsset == null && currentItemType == ItemsType.Cloth)
+                spriteLibrary.spriteLibraryAsset = baseLibrary;
         }
     }
 }
