@@ -17,9 +17,9 @@ public class InventoryBtn : MonoBehaviour
 
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Button itemBtn;
 
     private int valueToSell;
-    private Button itemBtn;
     private bool inRangeToSell;
     private int iD;
     private ItemsType itemsType;

@@ -16,12 +16,13 @@ public class HUDUI : UIBase
     protected override void Awake()
     {
         base.Awake();
+        inventoryBtn.onClick.RemoveListener(CloseInventory);
+        inventoryBtn.onClick.AddListener(OpenInventory);
     }
 
     public void SetCoinsUI(float currentScore)
     {
         coinsText.text = "x" + currentScore.ToString();
-        inventoryBtn.onClick.AddListener(OpenInventory);
     }
 
     private void OpenInventory()
