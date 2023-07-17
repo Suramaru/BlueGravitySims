@@ -14,6 +14,9 @@ public class InventoryPanel : MonoBehaviour
 
     private int currentItem;
 
+    /// <summary>
+    /// Get inventory buttons
+    /// </summary>
     public void Initialice()
     {
         buttons = GetComponentsInChildren<InventoryBtn>();
@@ -22,6 +25,9 @@ public class InventoryPanel : MonoBehaviour
             buttons[i].InteractWithItem += OnInteractWithItem;
     }
 
+    /// <summary>
+    /// Remove item after sell it
+    /// </summary>
     public void RemoveItem()
     {
         for (int i = 0; i < itemContainer.slots.Count; i++)
@@ -45,12 +51,15 @@ public class InventoryPanel : MonoBehaviour
         Show();
     }
 
-    public void CanSell(bool isTrue)
+    public void CanInteract(bool isTrue)
     {
         for (int i = 0; i < itemContainer.slots.Count; i++)
-            buttons[i].SetItemToSell(isTrue);
+            buttons[i].SetItemInteractive(isTrue);
     }
 
+    /// <summary>
+    /// Show inventory items
+    /// </summary>
     private void Show()
     {
         for (int i = 0; i < itemContainer.slots.Count; i++)

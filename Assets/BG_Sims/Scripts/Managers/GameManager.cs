@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
 
     private void OnCanSellItems(bool isTrue)
     {
-        inventoryPanel.CanSell(isTrue);
+        inventoryPanel.CanInteract(isTrue);
     }
 
     private void OnShowInteractionUI(int value, int _itemID, ItemsType itemsType)

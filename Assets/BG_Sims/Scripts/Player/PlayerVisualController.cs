@@ -21,6 +21,7 @@ public class PlayerVisualController : MonoBehaviour
 
     private void Awake()
     {
+        //Dictionary for actualice the sprite library
         spriteLibraries = new Dictionary<ItemsType, SpriteLibrary>()
         {
             { ItemsType.None, clothSpriteLibrary },
@@ -30,6 +31,11 @@ public class PlayerVisualController : MonoBehaviour
         };
     }
 
+    /// <summary>
+    /// Actualice the sprite library for change the visual of the player and actualice the UI frame
+    /// </summary>
+    /// <param name="currentItemType"></param>
+    /// <param name="spriteLibraryAsset"></param>
     public void SetSpriteLibrary(ItemsType currentItemType, SpriteLibraryAsset spriteLibraryAsset = null)
     {
         if (spriteLibraries.TryGetValue(currentItemType, out SpriteLibrary spriteLibrary))

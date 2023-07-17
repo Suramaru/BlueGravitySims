@@ -29,24 +29,23 @@ public class PlayerCoinsController : MonoBehaviour
             AddCoins(30);
     }
 
+    public void SubtractCoins()
+    {
+        Coins--;
+    }
     public void SubtractCoins(int value)
     {
         Coins -= value;
     }
 
-    public void SubtractCoins()
+    public void AddCoins()
     {
-        Coins--;
+        Coins++;
     }
 
     public void AddCoins(int value)
     {
         Coins += value;
-    }
-
-    public void AddCoins()
-    {
-        Coins++;
     }
 
     public void RestartCoins()

@@ -22,11 +22,17 @@ public class ProgressManager : MonoBehaviour
         dialogs = _dialogs;
     }
 
+    /// <summary>
+    /// Get the needed dialog
+    /// </summary>
     private void DialogToSay()
     {
         SetDialog?.Invoke(dialogs.GetDialogById(currentProgress), UserType.NPC);
     }
 
+    /// <summary>
+    /// Update the progress for the dialogs
+    /// </summary>
     public void ActualiceProgress()
     {
         if (currentProgress <= maxProgress)
@@ -36,6 +42,10 @@ public class ProgressManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the max progress
+    /// </summary>
+    /// <param name="nextMaxProgress"></param>
     public void ActualiceMaxProgress(int nextMaxProgress)
     {
         currentProgress = maxProgress + 1;

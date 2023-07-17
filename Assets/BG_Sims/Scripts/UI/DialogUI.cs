@@ -29,6 +29,11 @@ public class DialogUI : UIBase
         playerDialogText.transform.parent.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Set dialog
+    /// </summary>
+    /// <param name="dialog"></param>
+    /// <param name="userType"></param>
     public void SetDialog(string dialog, UserType userType)
     {
         LeanTween.cancel(gameObject);
@@ -39,6 +44,12 @@ public class DialogUI : UIBase
         dialogCoroutine = Timing.RunCoroutine(WriteText(dialog, userType));
     }
 
+    /// <summary>
+    /// Write the dialog
+    /// </summary>
+    /// <param name="dialog"></param>
+    /// <param name="userType"></param>
+    /// <returns></returns>
     private IEnumerator<float> WriteText(string dialog, UserType userType)
     {
         if (dialogTextDictionary.TryGetValue(userType, out TextMeshProUGUI targetText))

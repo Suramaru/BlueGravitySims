@@ -20,10 +20,13 @@ public class MinigameManager : MonoBehaviour
     {
         interactor.enabled = false;
 
-        parButton.onClick.AddListener(GuessPar);
-        imparButton.onClick.AddListener(GuessImpar);
+        parButton.onClick.AddListener(GuessEven);
+        imparButton.onClick.AddListener(GuessOdd);
     }
 
+    /// <summary>
+    /// Enable interaction with the minigame
+    /// </summary>
     public void EnableMinigame()
     {
         interactor.enabled = true;
@@ -34,7 +37,10 @@ public class MinigameManager : MonoBehaviour
         number = UnityEngine.Random.Range(1, 101);
     }
 
-    private void GuessPar()
+    /// <summary>
+    /// PlayerGuess even
+    /// </summary>
+    private void GuessEven()
     {
         guessed = number % 2 == 0;
 
@@ -47,7 +53,10 @@ public class MinigameManager : MonoBehaviour
         ShowResult();
     }
 
-    private void GuessImpar()
+    /// <summary>
+    /// Player guess odd
+    /// </summary>
+    private void GuessOdd()
     {
         guessed = number % 2 != 0;
 
@@ -59,6 +68,9 @@ public class MinigameManager : MonoBehaviour
         ShowResult();
     }
 
+    /// <summary>
+    /// Show result
+    /// </summary>
     private void ShowResult()
     {
         OptionSelected?.Invoke(guessed, textToShow, number, inventoryItem);

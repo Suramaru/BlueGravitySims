@@ -49,6 +49,11 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Wait for player interactiion
+    /// </summary>
+    /// <param name="collision"></param>
+    /// <returns></returns>
     private IEnumerator<float> WaitingForInteraction(Collider2D collision)
     {
         while (onInteractionRange)
@@ -76,6 +81,13 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Try to buy a item
+    /// </summary>
+    /// <param name="price"></param>
+    /// <param name="itemID"></param>
+    /// <param name="itemsType"></param>
+    /// <param name="inventoryItem"></param>
     private void TryToBuy(int price, int itemID, ItemsType itemsType, InventoryItem inventoryItem)
     {
         if (coinsController.Coins >= price)
@@ -87,6 +99,10 @@ public class PlayerInteractor : MonoBehaviour
             WithOutMoney?.Invoke();
     }
 
+
+    /// <summary>
+    /// Interact with npc
+    /// </summary>
     private void Speak()
     {
         InteractWithNPC?.Invoke();

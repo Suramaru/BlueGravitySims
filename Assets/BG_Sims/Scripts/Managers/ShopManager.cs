@@ -16,6 +16,10 @@ public class ShopManager : MonoBehaviour
         items = GetComponentsInChildren<ItemBase>();
     }
 
+    /// <summary>
+    /// Get all items in the shop
+    /// </summary>
+    /// <param name="_itemLibrary"></param>
     public void Initialice(ItemLibraryManager _itemLibrary)
     {
         itemLibrary = _itemLibrary;
@@ -28,6 +32,11 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Show item price
+    /// </summary>
+    /// <param name="itemPrice"></param>
+    /// <param name="parent"></param>
     private void OnGetPrice(int itemPrice, Transform parent)
     {
         UIPrice.SetActive(true);
@@ -36,6 +45,9 @@ public class ShopManager : MonoBehaviour
         UIPrice.transform.localPosition = new Vector3(0, .5f, 0);
     }
 
+    /// <summary>
+    /// Hide item price
+    /// </summary>
     private void OnHidePrice()
     {
         UIPrice.SetActive(false);

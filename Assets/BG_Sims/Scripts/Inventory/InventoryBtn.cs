@@ -30,11 +30,19 @@ public class InventoryBtn : MonoBehaviour
         itemBtn.onClick.AddListener(Interaction);
     }
 
-    public void SetItemToSell(bool isTrue)
+    /// <summary>
+    /// Enable possibiliy to interact
+    /// </summary>
+    /// <param name="isTrue"></param>
+    public void SetItemInteractive(bool isTrue)
     {
         inRangeToSell = isTrue;
     }
 
+    /// <summary>
+    /// Add a item to the inventory 
+    /// </summary>
+    /// <param name="itemSlot"></param>
     public void SetItem(ItemSlot itemSlot)
     {
         itemBtn.interactable = true;
@@ -54,6 +62,9 @@ public class InventoryBtn : MonoBehaviour
             text.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Remove object from the inventory
+    /// </summary>
     public void Clean()
     {
         itemBtn.interactable = false;
@@ -63,6 +74,9 @@ public class InventoryBtn : MonoBehaviour
         text.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Interact
+    /// </summary>
     private void Interaction()
     {
         if (inRangeToSell)
