@@ -14,7 +14,7 @@ public class InventoryPanel : MonoBehaviour
 
     private int currentItem;
 
-    private void Awake()
+    public void Initialice()
     {
         buttons = GetComponentsInChildren<InventoryBtn>();
 

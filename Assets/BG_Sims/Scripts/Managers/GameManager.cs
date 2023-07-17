@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         characterMovement.Initialice();
         progressManager.Initialice(dialogs);
-
+        inventoryPanel.Initialice();
         playerCoinsController.CoinsChanged += OnCoinsChanged;
         progressManager.SetDialog += OnSetDialog;
         playerInteractor.BuyItem += OnBuyItem;
