@@ -56,6 +56,8 @@ public class InventoryBtn : MonoBehaviour
 
     public void Clean()
     {
+        itemBtn.interactable = false;
+
         icon.sprite = null;
         icon.gameObject.SetActive(false);
         text.gameObject.SetActive(false);

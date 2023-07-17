@@ -18,7 +18,7 @@ MonoBehaviour:
   - id: 1
     dialog: You can take a underwear from my shop for free.
   - id: 2
-    dialog: But before you did it come and speak to me.
+    dialog: But after you do, come and speak to me.
   - id: 3
     dialog: I'll wait for you.
   - id: 4
@@ -28,4 +28,7 @@ MonoBehaviour:
   - id: 6
     dialog: If you win you get some items to sell.
   - id: 7
-    dialog: Let me know if you want to sell something.
+    dialog: Let me know if you want to sell something or if u want to put some clothes.
+  - id: 8
+    dialog: If you want to sell an item or equip it, you must be near me, open the
+      inventory and select the item.

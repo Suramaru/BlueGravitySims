@@ -64,7 +64,8 @@ public class GameManager : MonoBehaviour
     
     private void OnItemEquiped(int ItemID, ItemsType itemsType)
     {
-        playerVisualController.SetSpriteLibrary(itemsType, itemLibrary.GetItemSpriteLibraryById(ItemID).libraryAsset);
+        if(itemsType != ItemsType.None)
+            playerVisualController.SetSpriteLibrary(itemsType, itemLibrary.GetItemSpriteLibraryById(ItemID).libraryAsset);
     }
 
     private void OnSetDialog(string dialog, UserType userType)
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
         if (itemsType == ItemsType.None)
         {
             playerVisualController.SetSpriteLibrary(itemsType, itemLibrary.GetItemSpriteLibraryById(itemID).libraryAsset);
-            progressManager.ActualiceMaxProgress(7);
+            progressManager.ActualiceMaxProgress(8);
             uIManager.SetUI(UIType.Coins);
             minigameManager.EnableMinigame();
         }

@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: ItemsContainer
   m_EditorClassIdentifier: 
   slots:
+  - inventoryItem: {fileID: 11400000, guid: 52986344dd45b6048b48af209b2eacf6, type: 2}
+    count: 0
+    Id: -1451630568
+    itemsType: 3
   - inventoryItem: {fileID: 0}
     count: 0
     Id: 0
-    itemsType: 1
+    itemsType: 0
   - inventoryItem: {fileID: 0}
     count: 0
     Id: 0
-    itemsType: 1
+    itemsType: 0
   - inventoryItem: {fileID: 0}
     count: 0
     Id: 0
-    itemsType: 1
-  - inventoryItem: {fileID: 0}
-    count: 0
-    Id: 0
-    itemsType: 1
+    itemsType: 0
   - inventoryItem: {fileID: 0}
     count: 0
     Id: 0

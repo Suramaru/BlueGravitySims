@@ -12,6 +12,8 @@ public class PlayerInteractor : MonoBehaviour
     public Action<bool> CanSellItems;
     public Action<int, ItemsType, InventoryItem> BuyItem;
 
+    [SerializeField] private GameObject interactorGuide;
+
     private CoroutineHandle interactionCoroutine;
     private PlayerCoinsController coinsController;
 
@@ -20,15 +22,20 @@ public class PlayerInteractor : MonoBehaviour
     private void Awake()
     {
         coinsController = GetComponent<PlayerCoinsController>();
+        interactorGuide.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("ShopKeeper") || collision.CompareTag("Item") || collision.CompareTag("Minigame"))
         {
-            onInteractionRange = true;            
+            interactorGuide.SetActive(true);
+            onInteractionRange = true;
             interactionCoroutine = Timing.RunCoroutine(WaitingForInteraction(collision));
         }
+
+        if (collision.CompareTag("ShopKeeper"))
+            CanSellItems?.Invoke(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -38,6 +45,7 @@ public class PlayerInteractor : MonoBehaviour
             onInteractionRange = false;
             CanSellItems?.Invoke(false);
             Timing.KillCoroutines(interactionCoroutine);
+            interactorGuide.SetActive(false);
         }
     }
 
@@ -50,7 +58,7 @@ public class PlayerInteractor : MonoBehaviour
                 switch (collision.GetComponent<InteractorType>().interactorType)
                 {
                     case InteractorsType.NPC:
-                        CanSellItems?.Invoke(true);
+
                         Speak();
                         break;
                     case InteractorsType.Item:
